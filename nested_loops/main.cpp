@@ -15,6 +15,26 @@ void circle(int N)
     }
 }
 
+void sort(int *tab, int N)
+{
+    int size = N;
+    bool is_swapped;
+    do {
+        int *arr = new int[N];
+        size--;
+        is_swapped = false;
+        for (int i = 0; i < size; i++) {
+            if (tab[i] > tab[i + 1]) {
+                is_swapped = true;
+                int tmp = tab[i];
+                tab[i] = tab[i + 1];
+                tab[i + 1] = tmp;
+            }
+        }
+
+    } while (is_swapped);
+}
+
 vector<int> sort(vector<int> tab)
 {
     int size = tab.size();
@@ -60,5 +80,8 @@ int main()
     for (int el : v) {
         cout << el << ",";
     }
+
+    int array[] = {0, 1, -6, 12, -99, 8, 5};
+    sort(array, 7);
     return 0;
 }
